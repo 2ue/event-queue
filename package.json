@@ -8,6 +8,7 @@
     "lint": "eslint --ext .js --ext .vue ./ --fix && git add .",
     "pub": "npm publish"
   },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/@2ue" },
   "pre-commit": [
     "precommit-msg",
     "lint"
