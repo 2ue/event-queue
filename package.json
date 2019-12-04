@@ -1,6 +1,6 @@
 {
-  "name": "event-queue.js",
-  "version": "0.0.3",
+  "name": "event-queuejs",
+  "version": "0.0.1",
   "description": "event management",
   "main": "index.js",
   "scripts": {
