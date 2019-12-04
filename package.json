@@ -1,16 +1,36 @@
 {
-  "name": "rsk-common-module",
-  "version": "1.0.0",
-  "description": "",
+  "name": "event-queue",
+  "version": "0.0.1",
+  "description": "event management",
+  "main": "index.js",
   "scripts": {
     "precommit-msg": "echo 'Pre-commit checks.........' && exit 0",
-    "lint": "eslint --ext .js --ext .vue ./ --fix && git add ."
+    "lint": "eslint --ext .js --ext .vue ./ --fix && git add .",
+    "pub": "npm publish"
   },
   "pre-commit": [
     "precommit-msg",
     "lint"
   ],
-  "license": "ISC",
+  "keywords": [
+    "Event",
+    "Queue",
+    "Event management"
+  ],
+  "author": {
+    "name": "2ue",
+    "email": "jie746635835@163.com"
+  },
+  "homepage": "https://github.com/2ue/event-queue",
+  "repository": {
+    "type": "git",
+    "ssh": "git@github.com:2ue/event-queue.git",
+    "url": "https://github.com/2ue/event-queue.git"
+  },
+  "bugs": {
+    "url": "https://github.com/2ue/event-queue/issues"
+  },
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "babel-eslint": "^10.0.1",
