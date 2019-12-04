@@ -15,22 +15,22 @@ yarn add event-queue.js
 ```
 
 ```javascript
-  import EventQueue from 'event-queue.js';
-  const eventQueue = new EventQueue();
-  const eventList = [];
-  const eventArr = new Array(46).join(',').split(',');
-  eventArr.map(() => {
-    eventList.push(() => {
+import EventQueue from 'event-queue.js';
+const eventQueue = new EventQueue();
+const eventList = [];
+const eventArr = new Array(46).join(',').split(',');
+eventArr.map(() => {
+  eventList.push(() => {
     // mock event(async)
-      setTimeout(() => {
-        // do something...
-        // ...
-        
-        // notify done, and to run next event(function internal)
-        eventQueue.done();
-      }, 6000 * Math.random());
-    });
+    setTimeout(() => {
+      // do something...
+      // ...
+      
+      // notify done, and to run next event(function internal)
+      eventQueue.done();
+    }, 6000 * Math.random());
   });
-  // add event list to instance and run it!
-  eventQueue.add(taskList).run();
+});
+// add event list to instance and run it!
+eventQueue.add(taskList).run();
 ```
