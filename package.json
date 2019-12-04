@@ -1,6 +1,6 @@
 {
   "name": "event-queue.js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "event management",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,6 @@
     "lint": "eslint --ext .js --ext .vue ./ --fix && git add .",
     "pub": "npm publish"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "pre-commit": [
     "precommit-msg",
     "lint"
