@@ -1,21 +1,21 @@
 # event-queue
 
-Used to control events(async or sync) list
+events(async or sync) list management
 
 ## Use
 
-- maxEventNumber：{number} can run max event，default 5
-- async：{boolean} event list run with async or sync，default false, it means sync
-- breakRun：{function} break the add event to event list，while false(default return false)，can continue to add
+- maxEventNumber：{number} can run max event，default `5`
+- async：{boolean} event list run with async or sync，default `false`, it means sync
+- breakRun：{function} break the add event to event list，while `false`(default return `false`)，can continue to add
 
 ```bash
-npm install -S event-queue.js
+npm install -S event-queuejs
 // or
-yarn add event-queue.js
+yarn add event-queuejs
 ```
 
 ```javascript
-import EventQueue from 'event-queue.js';
+import EventQueue from 'event-queuejs';
 const eventQueue = new EventQueue();
 const eventList = [];
 const eventArr = new Array(46).join(',').split(',');
@@ -32,5 +32,5 @@ eventArr.map(() => {
   });
 });
 // add event list to instance and run it!
-eventQueue.add(taskList).run();
+eventQueue.add(eventList).run();
 ```
