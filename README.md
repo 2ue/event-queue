@@ -23,5 +23,6 @@
       }, 6000 * Math.random());
     });
   });
+  // 添加到任务队列，并执行
   eventQueue.add(taskList).run();
 ```
