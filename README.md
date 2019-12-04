@@ -1,28 +1,36 @@
 # event-queue
 
-用来控制事件(异步或者同步)的管理
+Used to control events(async or sync) list
 
 ## Use
 
-- maxEventNumber：{number} 允许最大并行任务数量，默认为5
-- async：{boolean} 是否需要异步执行，默认false
-- breakRun：{function} 用于中断继续向执行队列中添加任务，返回false(默认是false)表示继续添加
+- maxEventNumber：{number} can run max event，default 5
+- async：{boolean} event list run with async or sync，default false, it means sync
+- breakRun：{function} break the add event to event list，while false(default return false)，can continue to add
+
+```bash
+npm install -S event-queue.js
+// or
+yarn add event-queue.js
+```
 
 ```javascript
-  import EventQueue from './index';
+  import EventQueue from 'event-queue.js';
   const eventQueue = new EventQueue();
   const eventList = [];
   const eventArr = new Array(46).join(',').split(',');
   eventArr.map(() => {
-    // 模拟事件发生
     eventList.push(() => {
+    // mock event(async)
       setTimeout(() => {
         // do something...
-        // 调用完成标记, 通知执行下一个任务
+        // ...
+        
+        // notify done, and to run next event(function internal)
         eventQueue.done();
       }, 6000 * Math.random());
     });
   });
-  // 添加到任务队列，并执行
+  // add event list to instance and run it!
   eventQueue.add(taskList).run();
 ```
