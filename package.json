@@ -1,0 +1,23 @@
+{
+  "name": "rsk-common-module",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "precommit-msg": "echo 'Pre-commit checks.........' && exit 0",
+    "lint": "eslint --ext .js --ext .vue ./ --fix && git add ."
+  },
+  "pre-commit": [
+    "precommit-msg",
+    "lint"
+  ],
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "pre-commit": "^1.2.2"
+  }
+}
