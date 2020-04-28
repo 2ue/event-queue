@@ -1,6 +1,6 @@
 {
   "name": "event-queuejs",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "event management",
   "main": "./dist/index.js",
   "scripts": {
