@@ -48,7 +48,7 @@ EventQueue.prototype = {
     // 事件队列合集
     this.eventList = [];
     // 已完成事件队列
-    this.overEventList = 0;
+    this.overEventList = [];
     // 正在执行的事件个数
     this.eventRunNumber = 0;
     // 已经完成的事件个数

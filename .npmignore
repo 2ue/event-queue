@@ -3,7 +3,6 @@
 /app/logs
 node_modules/**
 .*/**
-dist
 package-lock.json
 *.lock
 *.bak.*
