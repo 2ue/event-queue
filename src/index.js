@@ -48,6 +48,7 @@ EventQueue.prototype = {
     // 事件队列合集
     this.eventList = [];
     // 已完成事件队列
+    // TODO: 通过done传入参数，导入结果，实现结果的处理
     this.overEventList = [];
     // 正在执行的事件个数
     this.eventRunNumber = 0;
