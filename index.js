@@ -27,6 +27,11 @@ function fixedMaxEventNumber(number) {
   return isNaN(number) || number <= 0 ? OPTIONS.maxEventNumber : number;
 }
 
+function typeFun(fun, defaultValue) {
+  if (fun && typeof fun === 'function') return true;
+  return defaultValue;
+}
+
 function EventQueue(options) {
   this.init(options);
 }
@@ -42,6 +47,8 @@ EventQueue.prototype = {
     this.options.maxEventNumber = fixedMaxEventNumber(this.options.maxEventNumber);
     // 事件队列合集
     this.eventList = [];
+    // 已完成事件队列
+    this.overEventList = 0;
     // 正在执行的事件个数
     this.eventRunNumber = 0;
     // 已经完成的事件个数
@@ -90,21 +97,24 @@ EventQueue.prototype = {
     // 即将执行的任务
     const event = eventList[eventIndex];
     // 没有任务，执行完了
-    if (!event) return;
+    if (!event) {
+      if (typeFun(options.completeAll)) options.completeAll(this.overEventList);
+      return;
+    }
     if (options.breakRun && options.breakRun({ eventRunNumber, eventOverNumber })) return;
     // 执行当前任务
     this.emit(event);
-    // 执行下一个任务
+    // 添加下一个任务
     this.eventRunNumber += 1;
     this.run();
   },
   emit(event) {
     if (this.options.async) {
       setTimeout(() => {
-        event.apply(this, arguments);
+        this.overEventList.push(event.apply(this, arguments));
       }, 6);
     } else {
-      event.apply(this, arguments);
+      this.overEventList.push(event.apply(this, arguments));
     }
   },
 };
